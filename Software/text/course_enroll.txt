@@ -1,3 +1,6 @@
 Spring 2018, CSE Evening 27 1
 Summer 2018, CSE Evening 27 2
-Fall 2018, CSE Day 27 3Fall, CIVIL Day 35 1
+Fall 2018, CSE Day 27 3
+Fall, CIVIL Day 35 1
+Fall, CSE Evening 27 3
+Summer, CSE Evening 27 4
