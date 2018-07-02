@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "global_variables.h"
-#include "viewMarksheet.h"
-#include "viewTotalCourse.h"
-#include "viewSummery.h"
-#include "viewPayment.h"
+#include "header/global_variables.h"
+#include "header/viewMarksheet.h"
+#include "header/viewTotalCourse.h"
+#include "header/viewSummery.h"
+
 
 void title()
 {
@@ -16,7 +16,7 @@ void title()
 void student_main_menu ()
 {
     printf("\t\t---------------------------------------------------------------------------------------------\n\n");
-    printf("\t\t\t    1.Summery / 2.Mark Sheet / 3.Payment Info / 4.Total Course / 5.Exit\n\n");
+    printf("\t\t\t    1.Summery / 2.Mark Sheet / 3.Total Course / 4.Exit\n\n");
     printf("\t\t---------------------------------------------------------------------------------------------\n\n");
 
     int select_menu;   printf("\t\t\t\t\tPress the Number of Menu: ");   scanf("%d",&select_menu);
@@ -27,11 +27,10 @@ void student_main_menu ()
 
         case 2:     system("CLS");  title();    markSheet();  break;
 
-        case 3:     system("CLS");  title();    viewPayment();  break;
 
-        case 4:     system("CLS");  title();    totalCourse();  break;
+        case 3:     system("CLS");  title();    totalCourse();  break;
 
-        case 5:     break;
+        case 4:     break;
 
         default:    printf("\t\t\t\tPress select the right menu");  break;
     }
@@ -48,7 +47,7 @@ void login()
 
     printf("\t\t\t\t\t\tEnter ID\t:   ");         scanf("%d",&id);
 
-    f = fopen("student.txt","r");
+    f = fopen("text/student.txt","r");
     while(!feof(f))
     {
         fscanf(f,"%d %[^,], %d %d %s %s %[^\n]",&read_student.id,read_student.name,&read_student.section,&read_student.intake,read_student.shift,read_student.program,read_student.semester);
@@ -60,7 +59,7 @@ void login()
 
     if(match == 1)
     {
-        f = fopen("studentLogin.txt","r");
+        f = fopen("text/studentLogin.txt","r");
         while(!feof(f))
         {
             fscanf(f,"%d %s",&readID,readPass);
@@ -97,7 +96,7 @@ void login()
             printf("\t\t\t\t\t\tDo you want to save ? y / n...");   permission = getch();
             if(permission == 'Y' || permission == 'y')
             {
-                f = fopen("studentLogin.txt","a");
+                f = fopen("text/studentLogin.txt","a");
                 fprintf(f,"%d %s\n",id,pass);
                 fclose(f);
 
